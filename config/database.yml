@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: lolpucrio_development
+  pool: 5
+  username: gberger
+  password: senha123
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: lolpucrio_test
+  pool: 5
+  username: gberger
+  password: senha123
+
+# producion: Heroku
