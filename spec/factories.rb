@@ -19,5 +19,7 @@ FactoryGirl.define do
     profile_icon_id 30
     revision_date { Time.now - 1.hour }
     user
+    created_at { Time.now }
+    updated_at { Time.now }
   end
 end
