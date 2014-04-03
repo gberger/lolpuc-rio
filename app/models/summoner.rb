@@ -4,6 +4,10 @@ class Summoner < ActiveRecord::Base
   validates_presence_of :name, :user
   validates_length_of :name, minimum: 1, maximum: 16, allow_blank: false
 
+  def fetched?
+    summoner_id.present?
+  end
+
   def update_from_api
     response = fetch_from_api
     self.summoner_id = response.id
@@ -18,7 +22,6 @@ class Summoner < ActiveRecord::Base
 
 private
 
-  before_save :maybe_update_from_api
   after_find :maybe_update_from_api
   def maybe_update_from_api
     if revision_date.nil? || updated_at + 15.minutes < Time.now
