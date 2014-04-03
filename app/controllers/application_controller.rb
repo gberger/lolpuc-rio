@@ -15,4 +15,5 @@ private
       user_path(user.id)
     end
   end
+  helper_method :user_path_with_nickname_maybe
 end
