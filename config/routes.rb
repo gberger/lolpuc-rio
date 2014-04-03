@@ -1,5 +1,7 @@
 Lolpucrio::Application.routes.draw do
 
+  get 'users/:nickname', to: 'users#show'
+
   root 'static#index'
   get 'index', to: 'static#index'
   get 'welcome', to: 'static#welcome', as: 'welcome'

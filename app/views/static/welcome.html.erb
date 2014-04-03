@@ -1,2 +1,8 @@
-<h1>Welcome</h1>
+<h1>Welcome!</h1>
 
+What's your summoner name?
+
+<%= bootstrap_form_for(@summoner) do |f| %>
+  <%= f.text_field :summoner_name %>
+  <%= f.submit %>
+<% end %>
