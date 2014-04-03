@@ -1,6 +1,7 @@
 Lolpucrio::Application.routes.draw do
 
   get 'users/:id_or_nickname', to: 'users#show', as: 'user', :constraints => { :id_or_nickname => /[\w+\.]+/ }
+  post 'me/summoner', to: 'summoners#create'
 
   root 'static#index'
   get 'index', to: 'static#index'

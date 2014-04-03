@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403010104) do
+ActiveRecord::Schema.define(version: 20140403031816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "summoners", force: true do |t|
     t.string   "name",                      null: false
-    t.integer  "summoner_id",     limit: 8, null: false
-    t.integer  "profile_icon_id",           null: false
-    t.integer  "level",                     null: false
-    t.datetime "revision_date",             null: false
+    t.integer  "summoner_id",     limit: 8
+    t.integer  "profile_icon_id"
+    t.integer  "level"
+    t.datetime "revision_date"
     t.integer  "user_id",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
