@@ -20,4 +20,9 @@
   <% end %>
 <% else %>
   <%= @user.summoner.name %>
+
+  <% if @user.summoner.fetched? %>
+    - Level <%= @user.summoner.level %>
+  <% end %>
+
 <% end %>
