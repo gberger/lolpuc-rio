@@ -12,4 +12,7 @@ Lolpucrio::Application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
+  # anything
+  match '*a', :to => 'errors#routing', via: :get
+
 end
