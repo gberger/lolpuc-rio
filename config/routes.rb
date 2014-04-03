@@ -1,6 +1,6 @@
 Lolpucrio::Application.routes.draw do
 
-  get 'users/:nickname', to: 'users#show', as: 'user', :constraints => { :nickname => /[\w+\.]+/ }
+  get 'users/:id_or_nickname', to: 'users#show', as: 'user', :constraints => { :id_or_nickname => /[\w+\.]+/ }
 
   root 'static#index'
   get 'index', to: 'static#index'
