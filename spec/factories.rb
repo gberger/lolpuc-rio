@@ -9,7 +9,7 @@ FactoryGirl.define do
     email "john.doe@example.com"
     oauth_token "averylongstring"
     oauth_token_expires_at "2014-06-02 01:38:04.000000"
-    role "basic"
+    kind "basic"
   end
 
   factory :summoner do

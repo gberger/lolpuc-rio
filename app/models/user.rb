@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_one :summoner
 
+  KINDS = %W(basic admin)
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -16,5 +18,9 @@ class User < ActiveRecord::Base
 
   def identifier
     nickname || id
+  end
+
+  def kind?(compare_kind)
+    KINDS.index(compare_kind.to_s) <= KINDS.index(kind)
   end
 end
