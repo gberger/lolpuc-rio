@@ -1,0 +1,11 @@
+#messages
+  - if flash.keys.length > 0
+    - flash.each do |name, msg|
+      - if msg.is_a?(String)
+        div class=("alert alert-#{name == :notice ? "success" : "danger"}")
+          a.close data-dismiss="alert"  ×
+          .flash-msg id="flash_#{name}"
+            = raw msg
+    coffee:
+      $ ->
+        $('.flash-msg a').addClass('alert-link')

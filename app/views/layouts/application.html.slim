@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title LOL PUC-Rio
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    #wrapper.wrapper
+      #navbar.navbar.navbar-default.navbar-static-top role="navigation"
+        .container
+          .navbar-header
+            button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand href="/" LOL PUC-Rio
+          .navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li
+                a href="/"  Home
+            ul.nav.navbar-nav.navbar-right
+              - if current_user
+                li= link_to current_user.name, user_path(current_user)
+                li= link_to "Logout", signout_path
+              - else
+                li
+                  a href="/auth/facebook"
+                    | Login com Facebook
+                    i.fa.fa-facebook-square
+
+      #content.container
+        .content
+          .row
+            .col-md-12
+              = render 'layouts/messages'
+              = yield
+          footer
+        .push
