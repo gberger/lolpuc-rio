@@ -16,7 +16,6 @@ describe Summoner do
 
     describe '#fetch_from_api' do
       it 'calls the API' do
-        summoner = create(:summoner)
         expect(LOL_CLIENT.summoner).to receive(:by_name).with(summoner.name).and_return([])
         summoner.fetch_from_api
       end

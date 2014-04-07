@@ -22,7 +22,7 @@ class Summoner < ActiveRecord::Base
 
 private
 
-  after_find :maybe_update_from_api
+#  after_find :maybe_update_from_api
   def maybe_update_from_api
     if revision_date.nil? || updated_at + 15.minutes < Time.now
       update_from_api
