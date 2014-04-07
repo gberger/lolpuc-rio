@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def identifier
+    nickname || id
+  end
 end

@@ -7,11 +7,10 @@ class SummonersController < ApplicationController
     @summoner = Summoner.new(name: summoner_params[:name], user: current_user)
 
     if @summoner.save
-      redirect_to user_path_with_nickname_maybe(current_user)
+      redirect_to user_path(current_user)
     else
-      redirect_to user_path_with_nickname_maybe(current_user), alert: 'Summoner Name inválido!'
+      redirect_to user_path(current_user), alert: 'Summoner Name inválido!'
     end
-
   end
 
 private

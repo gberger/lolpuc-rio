@@ -32,7 +32,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
-            <li><span><%= current_user.name %></span></li>
+            <li><%= link_to current_user.name, user_path(current_user) %></li>
             <li><%= link_to "Logout", signout_path %></li>
           <% else %>
             <li><a href="/auth/facebook">Login com Facebook <i class="fa fa-facebook-square"></i></a></li>

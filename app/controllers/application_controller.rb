@@ -16,17 +16,18 @@ private
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
 
+  helper_method :current_user
   def current_user
     @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
   end
-  helper_method :current_user
 
-  def user_path_with_nickname_maybe(user)
-    if user.nickname.present?
-      user_path(user.nickname)
-    else
-      user_path(user.id)
-    end
+  helper_method :current_path
+  def current_path
+    request.env['PATH_INFO']
   end
-  helper_method :user_path_with_nickname_maybe
+
+  helper_method :user_path
+  def user_path(user)
+    super(user.identifier)
+  end
 end
