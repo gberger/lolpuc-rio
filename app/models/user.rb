@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_one :summoner
+  has_many :members
+  has_many :teams, through: :members
 
   KINDS = %W(basic admin)
 
