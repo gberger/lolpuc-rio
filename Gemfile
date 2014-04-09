@@ -3,7 +3,7 @@ source 'https://rails-assets.org'
 
 ruby '2.0.0'
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.0'
 gem 'pg'
 
 gem 'omniauth-facebook'
@@ -35,6 +35,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'debugger'
   gem 'guard-rspec'
+  gem 'minitest'
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'fuubar'
