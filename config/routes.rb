@@ -1,18 +1,30 @@
 Lolpucrio::Application.routes.draw do
 
-  get 'users/:id_or_nickname', to: 'users#show', as: 'user', :constraints => { :id_or_nickname => /[\w+\.]+/ }
-  post 'me/summoner', to: 'summoners#create'
+  # USERS
+  get 'users', to: 'users#index'
+  get 'users/:id_or_nickname', to: 'users#show', as: 'user', :constraints => { :id_or_nickname => /[\w\.]+/ }
 
+  # SUMMONERS
+  post 'summoners', to: 'summoners#create'
+
+  # TEAMS
+  # TODO
+
+  # TOURNAMENTS
+  # TODO
+
+  # STATIC
   root 'static#index'
   get 'index', to: 'static#index'
-  get 'welcome', to: 'static#welcome', as: 'welcome'
+  get 'home', to: 'static#home'
   get 'ping', to: 'static#ping'
 
-  get 'auth/:provider/callback', to: 'sessions#create'
+  # AUTHENTICATION
+  get 'auth/:provider/callback', to: 'sessions#create', as: 'login'
   get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
+  get 'signout', to: 'sessions#destroy', as: 'logout'
 
-  # anything
+  # CATCH-ALL
   match '*a', :to => 'errors#routing', via: :get
 
 end

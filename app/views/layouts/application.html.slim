@@ -11,24 +11,22 @@ html
         .container
           .navbar-header
             button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
-              span.sr-only Toggle navigation
+              span.sr-only Navegação
               span.icon-bar
               span.icon-bar
               span.icon-bar
             a.navbar-brand href="/" LOL PUC-Rio
           .navbar-collapse.collapse
             ul.nav.navbar-nav
-              li
-                a href="/"  Home
+              li= link_to "Home", root_path
+              li= link_to "Usuários", users_path
+
             ul.nav.navbar-nav.navbar-right
               - if current_user
                 li= link_to current_user.name, user_path(current_user)
-                li= link_to "Logout", signout_path
+                li= link_to "Logout", logout_path
               - else
-                li
-                  a href="/auth/facebook"
-                    | Login com Facebook
-                    i.fa.fa-facebook-square
+                li= link_to 'Login com Facebook', facebook_login_path
 
       #content.container
         .content
