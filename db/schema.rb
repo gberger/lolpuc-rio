@@ -43,14 +43,14 @@ ActiveRecord::Schema.define(version: 20140407153231) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "provider",                                 null: false
-    t.string   "uid",                                      null: false
-    t.string   "name",                                     null: false
+    t.string   "provider",                           null: false
+    t.string   "uid",                                null: false
+    t.string   "name",                               null: false
     t.string   "nickname"
     t.string   "email"
-    t.string   "oauth_token",                              null: false
-    t.string   "oauth_token_expires_at",                   null: false
-    t.string   "kind",                   default: "basic", null: false
+    t.string   "oauth_token",                        null: false
+    t.string   "oauth_token_expires_at",             null: false
+    t.integer  "kind",                   default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

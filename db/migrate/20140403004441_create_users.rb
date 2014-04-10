@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :oauth_token, null: false
       t.string :oauth_token_expires_at, null: false
-      t.string :role, null: false, default: "basic"
+      t.integer :kind, null: false, default: 0
 
       t.timestamps
     end

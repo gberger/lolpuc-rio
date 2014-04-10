@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
+  enum kind: [:basic, :admin]
+
   has_one :summoner
   has_many :members
   has_many :teams, through: :members
-
-  KINDS = %W(basic admin)
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -20,9 +20,5 @@ class User < ActiveRecord::Base
 
   def identifier
     nickname || id
-  end
-
-  def kind?(compare_kind)
-    KINDS.index(compare_kind.to_s) <= KINDS.index(kind)
   end
 end
