@@ -6,6 +6,7 @@
 #  name       :string(255)      not null
 #  created_at :datetime
 #  updated_at :datetime
+#  acronym    :string(255)      not null
 #
 
 class Team < ActiveRecord::Base
