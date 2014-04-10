@@ -18,6 +18,12 @@ describe Team do
   end
 
   describe 'validations' do
+    before { create(:team) }
+
     it { should validate_uniqueness_of(:name) }
+    it { should validate_presence_of(:name) }
+    it { should validate_uniqueness_of(:acronym) }
+    it { should validate_presence_of(:acronym) }
+    it { should ensure_exclusion_of(:acronym).in_array(%w[new edit]) }
   end
 end

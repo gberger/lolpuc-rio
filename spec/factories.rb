@@ -22,4 +22,9 @@ FactoryGirl.define do
     created_at { Time.now }
     updated_at { Time.now }
   end
+
+  factory :team do
+    name "Team Solomid"
+    acronym "TSM"
+  end
 end

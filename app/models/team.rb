@@ -14,4 +14,8 @@ class Team < ActiveRecord::Base
   has_many :users, through: :members
 
   validates_uniqueness_of :name
+  validates_presence_of :name
+  validates_uniqueness_of :acronym
+  validates_presence_of :acronym
+  validates_exclusion_of :acronym, in: %w[new edit]
 end
