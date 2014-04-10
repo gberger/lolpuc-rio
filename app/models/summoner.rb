@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: summoners
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)      not null
+#  summoner_id     :integer
+#  profile_icon_id :integer
+#  level           :integer
+#  revision_date   :datetime
+#  user_id         :integer          not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class Summoner < ActiveRecord::Base
   belongs_to :user
 
