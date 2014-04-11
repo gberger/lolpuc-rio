@@ -24,15 +24,15 @@ describe User do
     it { should have_many(:teams).through(:members) }
   end
 
-  describe '#identifier' do
+  describe '#to_param' do
     it 'is the nickname when available' do
       user = build(:user)
-      user.identifier.should == user.nickname
+      user.to_param.should == user.nickname
     end
 
     it 'is the id otherwise' do
       user = build(:user, nickname: nil)
-      user.identifier.should == user.id
+      user.to_param.should == user.id
     end
   end
 end

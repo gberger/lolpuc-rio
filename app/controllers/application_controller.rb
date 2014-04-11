@@ -25,9 +25,4 @@ private
   def current_path
     request.env['PATH_INFO']
   end
-
-  helper_method :user_path
-  def user_path(user)
-    super(user.identifier)
-  end
 end

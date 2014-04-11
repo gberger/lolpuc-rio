@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
   has_many :members
   has_many :teams, through: :members
 
+  def to_param
+    nickname || id
+  end
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -35,9 +39,5 @@ class User < ActiveRecord::Base
       user.oauth_token_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
-  end
-
-  def identifier
-    nickname || id
   end
 end
