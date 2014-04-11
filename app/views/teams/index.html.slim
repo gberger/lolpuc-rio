@@ -4,5 +4,11 @@ ul
   - @teams.each do |team|
     li= link_to team.summary, team_path(team)
 
-- if can?(:create, Team)
+- if can?(:create, Team) && can?(:join, Team)
   = link_to 'Novo time', new_team_path, class: 'btn btn-success'
+- else
+  - if current_user
+    p
+      ' Por favor,
+      = link_to 'defina seu Summoner Name', user_path(current_user)
+      '  para poder criar um time!

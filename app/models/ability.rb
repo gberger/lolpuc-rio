@@ -5,14 +5,19 @@ class Ability
     user ||= User.new
 
     cannot :manage, :all
+    can :read, :all
 
     if user.basic?
-      can :read, :all
       can :create, Team
     end
 
     can :manage, Team do |team|
       team.leader && team.leader.user == user
+    end
+
+    if user.summoner.nil?
+      cannot :join, Team
+      cannot :create, Team
     end
 
     if user.admin?

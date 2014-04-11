@@ -12,6 +12,7 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     authorize! :create, Team
+
     @team = Team.new
   end
 
