@@ -10,6 +10,8 @@
 #
 
 class Team < ActiveRecord::Base
+  include CaseInsensitiveFindable
+
   has_many :members
   has_many :users, through: :members
 

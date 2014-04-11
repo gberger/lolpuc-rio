@@ -16,6 +16,8 @@
 #
 
 class User < ActiveRecord::Base
+  include CaseInsensitiveFindable
+
   enum kind: [:basic, :admin]
 
   has_one :summoner
