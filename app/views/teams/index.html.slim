@@ -1,0 +1,8 @@
+h1 Times
+
+ul
+  - @teams.each do |team|
+    li= link_to team.summary, team_path(team)
+
+- if can?(:create, Team)
+  = link_to 'Novo time', new_team_path, class: 'btn btn-success'

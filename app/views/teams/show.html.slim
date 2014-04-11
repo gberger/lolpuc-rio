@@ -1,0 +1,9 @@
+h1= @team.summary
+h2= pluralize(@team.members.count, 'membro')
+
+ul
+  - @team.members.each do |member|
+    li= member.summary
+
+- if can?(:manage, @team)
+  = link_to 'Editar time', edit_team_path, class: 'btn btn-success'

@@ -4,11 +4,18 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    if user.kind? :basic
+    cannot :manage, :all
+
+    if user.basic?
       can :read, :all
+      can :create, Team
     end
 
-    if user.kind? :admin
+    can :manage, Team do |team|
+      team.leader && team.leader.user == user
+    end
+
+    if user.admin?
       can :manage, :all
     end
 

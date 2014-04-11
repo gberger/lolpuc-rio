@@ -27,4 +27,11 @@ FactoryGirl.define do
     name "Team Solomid"
     acronym "TSM"
   end
+
+  factory :member do
+    user
+    team
+    role 'mid'
+    leader false
+  end
 end

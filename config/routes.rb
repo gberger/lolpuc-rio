@@ -8,7 +8,7 @@ Lolpucrio::Application.routes.draw do
   post 'summoners', to: 'summoners#create'
 
   # TEAMS
-  # TODO
+  resources 'teams', param: :acronym
 
   # TOURNAMENTS
   # TODO

@@ -1,0 +1,6 @@
+#validation_errors
+  - if errors.any?
+    - errors.full_messages.each do |msg|
+      .alert.alert-warning
+        a.close data-dismiss=alert &#215;
+        p= raw msg

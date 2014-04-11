@@ -1,0 +1,9 @@
+= bootstrap_form_for @team do |f|
+  = render partial: 'layouts/validation_errors', locals: {errors: @team.errors}
+
+  .inputs
+    = f.text_field :name
+    = f.text_field :acronym
+
+  .actions
+    = f.submit 'Salvar', class: 'btn btn-primary btn-block'

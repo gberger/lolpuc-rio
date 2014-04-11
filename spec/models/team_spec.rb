@@ -24,6 +24,34 @@ describe Team do
     it { should validate_presence_of(:name) }
     it { should validate_uniqueness_of(:acronym) }
     it { should validate_presence_of(:acronym) }
-    it { should ensure_exclusion_of(:acronym).in_array(%w[new edit]) }
+    it { should ensure_exclusion_of(:acronym).in_array(%w[new]) }
+    it { should allow_value('Aa1_.').for(:acronym) }
+    it { should allow_value('ABC').for(:acronym) }
+    it { should_not allow_value('<#$%&').for(:acronym) }
+    it { should_not allow_value('ABC123').for(:acronym) }
+  end
+
+  describe '#leader' do
+    it 'returns the member who is the leader' do
+      team = create(:team)
+      users = create_list(:user, 2)
+      member = create(:member, team: team, user: users[0], role: 'adc')
+      leader = create(:member, team: team, user: users[1], leader: true, role: 'top')
+
+      team.leader.should == leader
+    end
+
+    it "returns nil when there's no leader" do
+      team = create(:team)
+      users = create_list(:user, 2)
+      create(:member, team: team, user: users[0], role: 'adc')
+      create(:member, team: team, user: users[1], role: 'top')
+
+      team.leader.should be_nil
+    end
+  end
+
+  describe '::new_with_leader' do
+
   end
 end
