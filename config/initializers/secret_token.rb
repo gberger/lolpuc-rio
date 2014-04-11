@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Lolpucrio::Application.config.secret_key_base = 'ac16ce645ec1521b76e559050d69d5bbaf882ed047bfbba356d1a173ba93e643c8d1e6de1abfc71de146d0174dc2a2f1d11c45e9a2034f5c3c3c0cf112f5c38b'
+Lolpucrio::Application.config.secret_key_base = ENV['SECRET_KEY']
