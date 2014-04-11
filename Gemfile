@@ -6,6 +6,8 @@ ruby '2.0.0'
 gem 'rails', '4.1.0'
 gem 'pg'
 
+gem 'rails-i18n'
+
 gem 'omniauth-facebook'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'cancancan'

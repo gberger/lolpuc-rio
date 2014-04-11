@@ -1,0 +1,6 @@
+pt-BR:
+  activerecord:
+    attributes:
+      team:
+        name: Nome
+        acronym: Sigla
