@@ -19,6 +19,8 @@ class Member < ActiveRecord::Base
   validates_presence_of :team
   validates_presence_of :user
 
+  attr_readonly :user, :user_id, :team, :team_id
+
   def summary
     "#{user.summoner.name} (#{user.name}) - #{role}" + (leader ? ' (lider)' : '')
   end
