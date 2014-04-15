@@ -51,7 +51,47 @@ describe Team do
     end
   end
 
-  describe '::new_with_leader' do
+  describe '#size' do
+    it 'is the members.size' do
+      team = create(:team)
+      team.stub_chain(:members, :size).and_return(5)
+      team.size.should == team.members.size
+    end
+  end
 
+  describe '#max_size' do
+    it 'is 5' do
+      team = create(:team)
+      team.max_size.should == 5
+    end
+  end
+
+  describe '#full?' do
+    let(:team) { create(:team) }
+
+    it 'is true when size > max_size' do
+      team.stub(:size).and_return(6)
+      team.stub(:max_size).and_return(5)
+
+      team.full?.should == true
+    end
+
+    it 'is true when size == max_size' do
+      team.stub(:size).and_return(5)
+      team.stub(:max_size).and_return(5)
+
+      team.full?.should == true
+    end
+
+    it 'is false when size < max_size' do
+      team.stub(:size).and_return(4)
+      team.stub(:max_size).and_return(5)
+
+      team.full?.should == false
+    end
+  end
+
+  describe '::new_with_leader' do
+    pending
   end
 end

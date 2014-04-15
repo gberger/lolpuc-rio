@@ -36,6 +36,18 @@ class Team < ActiveRecord::Base
     members.find { |m| m.leader? }
   end
 
+  def max_size
+    5
+  end
+
+  def size
+    members.size
+  end
+
+  def full?
+    size >= max_size
+  end
+
   def self.new_with_leader(params, user)
     team = new(params)
     team.members << Member.new(user: user, leader: true, confirmed: true)
