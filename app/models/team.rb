@@ -21,11 +21,16 @@ class Team < ActiveRecord::Base
   validates_presence_of :acronym
   validates_exclusion_of :acronym, in: %w[new]
   validates_format_of :acronym, with: /\A[\w\.]{1,5}\z/   # Alphanumeric, underscore, dot, max 5
+  validate :validate_team_size
   # TODO:
   # validates_presence_of :leader
 
   def to_param
     acronym
+  end
+
+  def validate_team_size
+    errors.add(:members, "too much") if members.size > max_size
   end
 
   def summary
