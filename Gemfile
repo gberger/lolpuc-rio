@@ -23,6 +23,8 @@ gem 'rails-assets-jquery'
 gem 'bootstrap_form'
 gem 'turbolinks'
 
+gem 'redcarpet'
+
 gem 'ruby-lol'
 
 group :development do
