@@ -6,6 +6,7 @@
           a.close data-dismiss="alert" ×
           .flash-msg id="flash-#{name}"
             = raw msg
-    coffee:
-      $ ->
-        $('.flash-msg a').addClass('alert-link')
+    - content_for :bottom
+      coffee:
+        $ ->
+          $('.flash-msg a').addClass('alert-link')

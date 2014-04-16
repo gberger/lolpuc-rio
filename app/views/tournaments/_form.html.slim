@@ -3,7 +3,17 @@
 
   .inputs
     = f.text_field :name
-    = f.text_area :edital
+    = f.text_area :edital, rows: 20, id: 'edital-input'
 
   .actions
     = f.submit 'Salvar', class: 'btn btn-primary btn-block'
+
+  - content_for :bottom
+    coffee:
+      $ ->
+        $('#edital-input').markdown
+          iconlibrary: 'fa'
+          onPreview: ->
+            setTimeout(->
+              $('.md-preview table').addClass('table table-striped table-bordered table-hover')
+            , 1)

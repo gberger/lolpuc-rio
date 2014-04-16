@@ -2,9 +2,13 @@ doctype html
 html
   head
     title LOL PUC-Rio
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+
+    = stylesheet_link_tag    "public", media: "all", "data-turbolinks-track" => true
+    - if current_user && current_user.admin?
+      = stylesheet_link_tag  "admin",  media: "all", "data-turbolinks-track" => true
+
     = csrf_meta_tags
+    = yield(:head)
   body
     #wrapper.wrapper
       #navbar.navbar.navbar-default.navbar-static-top role="navigation"
@@ -38,3 +42,9 @@ html
               = yield
           footer
         .push
+
+
+    = javascript_include_tag   "public", "data-turbolinks-track" => true
+    - if current_user && current_user.admin?
+      = javascript_include_tag "admin",  "data-turbolinks-track" => true
+    = yield(:bottom)
