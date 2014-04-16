@@ -18,8 +18,8 @@ class TeamsController < ApplicationController
 
   # GET /teams/TSM/edit
   def edit
-    authorize! :edit, @team
     @team = Team.ci_find!(:acronym, params[:acronym])
+    authorize! :edit, @team
   end
 
   # POST /teams
