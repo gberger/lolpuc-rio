@@ -36,6 +36,10 @@ class User < ActiveRecord::Base
   end
   delegate :can?, :cannot?, to: :ability
 
+  def name_with_icon
+    (name + (admin? ? ' <i class="fa fa-star"></i>' : '')).html_safe
+  end
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
