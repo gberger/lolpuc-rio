@@ -55,7 +55,7 @@ class TeamsController < ApplicationController
     redirect_to teams_url, notice: 'Team was successfully destroyed.'
   end
 
-  private
+private
   def team_params
     params[:team].permit(:name, :acronym)
   end

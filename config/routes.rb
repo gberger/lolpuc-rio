@@ -8,7 +8,10 @@ Lolpucrio::Application.routes.draw do
   post 'summoners', to: 'summoners#create'
 
   # TEAMS
-  resources 'teams', param: :acronym
+  resources 'teams', param: :acronym do
+    # MEMBERS
+    resources 'members', only: [:create, :update, :destroy]
+  end
 
   # TOURNAMENTS
   # TODO
@@ -16,7 +19,6 @@ Lolpucrio::Application.routes.draw do
   # STATIC
   root 'static#index'
   get 'index', to: 'static#index'
-  get 'home', to: 'static#home'
   get 'ping', to: 'static#ping'
 
   # AUTHENTICATION
