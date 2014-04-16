@@ -4,8 +4,7 @@ Lolpucrio::Application.routes.draw do
   get 'users', to: 'users#index'
   get 'users/:id_or_nickname', to: 'users#show', as: 'user', :constraints => { :id_or_nickname => /[\w\.]+/ }
 
-  # SUMMONERS
-  post 'summoners', to: 'summoners#create'
+  patch 'me/summoner', to: 'users#set_summoner_name'
 
   # TEAMS
   resources 'teams', param: :acronym do

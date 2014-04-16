@@ -13,15 +13,19 @@
 #  kind                   :integer          default(0), not null
 #  created_at             :datetime
 #  updated_at             :datetime
+#  summoner_name          :string(255)
 #
 
 require 'spec_helper'
 
 describe User do
   describe 'relations' do
-    it { should have_one(:summoner) }
     it { should have_many(:members) }
     it { should have_many(:teams).through(:members) }
+  end
+
+  describe 'validations' do
+    it { should ensure_length_of(:summoner_name).is_at_most(16) }
   end
 
   describe '#to_param' do

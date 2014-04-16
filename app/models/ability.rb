@@ -15,7 +15,7 @@ class Ability
       team.leader && team.leader.user == user
     end
 
-    if user.summoner.nil?
+    if user.summoner_name.nil?
       cannot :join, Team
       cannot :create, Team
     end

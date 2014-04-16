@@ -6,6 +6,9 @@ describe 'Routing' do
   it { should route(:get, '/users').to('users#index') }
   it { should route(:get, '/users/1').to('users#show', id_or_nickname: '1') }
 
+  # ME
+  it { should route(:patch, '/me/summoner').to('users#set_summoner_name') }
+
   # TEAMS
   it { should route(:get, '/teams').to('teams#index') }
   it { should route(:get, '/teams/new').to('teams#new') }

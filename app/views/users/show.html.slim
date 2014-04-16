@@ -1,20 +1,18 @@
 h1= @user.name
 
-- if @user.summoner.nil?
+- if @user.summoner_name.nil?
   - if current_user == @user
     .alert.alert-info
       h3
         ' Você ainda não definiu seu
         strong Summoner Name
         ' !
-      = form_for Summoner.new, url: '/summoners' do |t|
+      = form_for @user, url: me_summoner_path do |t|
         .form-group
           .col-sm-10
-            = t.text_field :name, class: 'form-control input-lg', placeholder: 'Summoner Name'
+            = t.text_field :summoner_name, class: 'form-control input-lg', placeholder: 'Summoner Name'
           .col-sm-2
             = t.submit 'Definir', class: 'btn btn-lg btn-block btn-primary'
       | \&nbsp;
 - else
-  = @user.summoner.name
-  - if @user.summoner.fetched?
-    | \- Level #{@user.summoner.level}
+  = @user.summoner_name

@@ -13,6 +13,7 @@
 #  kind                   :integer          default(0), not null
 #  created_at             :datetime
 #  updated_at             :datetime
+#  summoner_name          :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -20,9 +21,10 @@ class User < ActiveRecord::Base
 
   enum kind: [:basic, :admin]
 
-  has_one :summoner
   has_many :members
   has_many :teams, through: :members
+
+  validates_length_of :summoner_name, maximum: 16
 
   def to_param
     nickname || id

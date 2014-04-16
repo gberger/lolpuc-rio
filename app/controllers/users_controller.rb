@@ -11,4 +11,10 @@ class UsersController < ApplicationController
       redirect_to user_path(@user), status: :moved_permanently
     end
   end
+
+  def set_summoner_name
+    @user = current_user
+    @user.update(params[:user].permit(:summoner_name))
+    redirect_to user_path(@user)
+  end
 end
