@@ -22,7 +22,9 @@ class Member < ActiveRecord::Base
   attr_readonly :user, :user_id, :team, :team_id
 
   def summary
-    "#{user.summoner.name} (#{user.name}) - #{role}" + (leader ? ' (lider)' : '')
+    "#{user.summoner.name} (#{user.name})" +
+    (role.present? ? " - #{role}" : '') +
+    (leader? ? ' (líder)' : '')
   end
 
   def leader?
