@@ -1,0 +1,9 @@
+= bootstrap_form_for @tournament do |f|
+  = render partial: 'layouts/validation_errors', locals: {errors: @tournament.errors}
+
+  .inputs
+    = f.text_field :name
+    = f.text_area :edital
+
+  .actions
+    = f.submit 'Salvar', class: 'btn btn-primary btn-block'

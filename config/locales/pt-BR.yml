@@ -4,3 +4,11 @@ pt-BR:
       team:
         name: Nome
         acronym: Sigla
+      tournament:
+        name: Nome
+        edital: Edital
+      user:
+        name: Nome
+      member:
+        role: Role
+        leader: Líder

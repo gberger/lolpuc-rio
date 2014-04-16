@@ -34,4 +34,9 @@ FactoryGirl.define do
     role 'mid'
     leader false
   end
+
+  factory :tournament do
+    name 'LCS Season 4'
+    edital '# bla bla bla'
+  end
 end

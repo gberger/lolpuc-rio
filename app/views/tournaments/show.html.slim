@@ -1,0 +1,7 @@
+h1= @tournament.name
+
+- if can? :edit, @tournament
+  = link_to 'Editar', edit_tournament_path(@tournament), class: 'btn btn-success'
+
+h2 Edital
+div= @tournament.edital

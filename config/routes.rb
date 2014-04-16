@@ -13,7 +13,7 @@ Lolpucrio::Application.routes.draw do
   end
 
   # TOURNAMENTS
-  # TODO
+  resources 'tournaments'
 
   # STATIC
   root 'static#index'

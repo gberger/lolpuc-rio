@@ -1,0 +1,7 @@
+h1 Torneios
+
+- if can? :create, Tournament
+  = link_to 'Novo Torneio', new_tournament_path, class: 'btn btn-success'
+
+- @tournaments.each do |tournament|
+  h2= link_to tournament.name, tournament_path(tournament)
