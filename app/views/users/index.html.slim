@@ -1,5 +1,14 @@
 h1 Usuários
 
-ul
-  - @users.each do |user|
-    li= link_to user.name, user_path(user)
+table.table.table-striped.table-hover.table-bordered
+  thead
+    tr
+      th Nome
+      th Summoner Name
+      th Facebook nickname
+  tbody
+    - @users.each do |user|
+      tr
+        td= user.name
+        td= user.summoner_name
+        td= user.nickname
